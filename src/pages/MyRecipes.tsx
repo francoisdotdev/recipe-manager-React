@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { type Recipe, type Ingredient } from "../types/recipes";
+import type { Recipe, Ingredient } from "../types/recipes";
+import { useFavorites } from "../hooks/useFavorites";
 
 const MyRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>(() => {
-    const stored = localStorage.getItem("recipes");
-    return stored ? JSON.parse(stored) : [];
+    const saved = localStorage.getItem("recipes");
+    return saved ? JSON.parse(saved) : [];
   });
+
+  const { favorites, addFavorite, removeFavorite, isFavorite } = useFavorites();
 
   const [showForm, setShowForm] = useState(false);
 
@@ -56,7 +59,8 @@ const MyRecipes: React.FC = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    setRecipes([...recipes, { ...form, id: Date.now() }]);
+    const newRecipe = { ...form, id: Date.now() };
+    setRecipes([...recipes, newRecipe]);
     setForm({
       id: Date.now(),
       name: "",
@@ -89,7 +93,6 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, name: e.currentTarget.value })}
             />
           </div>
-
           <div>
             <label>Type:</label>
             <input
@@ -98,7 +101,6 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, type: e.currentTarget.value })}
             />
           </div>
-
           <div>
             <label>Cuisine:</label>
             <input
@@ -107,7 +109,6 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, cuisine: e.currentTarget.value })}
             />
           </div>
-
           <div>
             <label>Difficulty:</label>
             <input
@@ -116,25 +117,22 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, difficulty: e.currentTarget.value })}
             />
           </div>
-
           <div>
-            <label>Prep Time (min):</label>
+            <label>Prep Time:</label>
             <input
               type="number"
               value={form.prepTime}
               onChange={(e) => setForm({ ...form, prepTime: Number(e.currentTarget.value) })}
             />
           </div>
-
           <div>
-            <label>Cook Time (min):</label>
+            <label>Cook Time:</label>
             <input
               type="number"
               value={form.cookTime}
               onChange={(e) => setForm({ ...form, cookTime: Number(e.currentTarget.value) })}
             />
           </div>
-
           <div>
             <label>Servings:</label>
             <input
@@ -143,7 +141,6 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, servings: Number(e.currentTarget.value) })}
             />
           </div>
-
           <div>
             <label>Image URL:</label>
             <input
@@ -152,7 +149,6 @@ const MyRecipes: React.FC = () => {
               onChange={(e) => setForm({ ...form, image: e.currentTarget.value })}
             />
           </div>
-
           <div>
             <label>Rating:</label>
             <input
@@ -212,7 +208,10 @@ const MyRecipes: React.FC = () => {
       <ul>
         {recipes.map((r) => (
           <li key={r.id}>
-            <h3>{r.name}</h3>
+            <h3>{r.name} {isFavorite(r.id) && "⭐"}</h3>
+            <button onClick={() => isFavorite(r.id) ? removeFavorite(r.id) : addFavorite(r)}>
+              {isFavorite(r.id) ? "Remove Favorite" : "Add Favorite"}
+            </button>
             <p>Type: {r.type}</p>
             <p>Cuisine: {r.cuisine}</p>
             <p>Difficulty: {r.difficulty}</p>
