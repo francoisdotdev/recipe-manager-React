@@ -9,7 +9,7 @@ const MyRecipes: React.FC = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const { favorites, addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const {addFavorite, removeFavorite, isFavorite } = useFavorites();
 
   const [showForm, setShowForm] = useState(false);
 
