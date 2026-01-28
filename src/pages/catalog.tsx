@@ -1,11 +1,14 @@
 import { useState } from "react";
 import recipes from "../data/recipes.json";
 import RecipeCard from "../components/RecipeCard";
+import { useFavorites } from "../hooks/useFavorites";
 
 export default function Catalog() {
   const [filterType, setFilterType] = useState<string | null>(null);
   const [filterValue, setFilterValue] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
   const cuisines = Array.from(new Set(recipes.map((r: any) => r.cuisine)));
 
@@ -21,19 +24,45 @@ export default function Catalog() {
       />
 
       <div>
-        <button onClick={() => { setFilterType("type"); setFilterValue(null); }}>
+        <button
+          onClick={() => {
+            setFilterType("type");
+            setFilterValue(null);
+          }}
+        >
           Type
         </button>
-        <button onClick={() => { setFilterType("difficulty"); setFilterValue(null); }}>
+        <button
+          onClick={() => {
+            setFilterType("difficulty");
+            setFilterValue(null);
+          }}
+        >
           Difficulty
         </button>
-        <button onClick={() => { setFilterType("cuisine"); setFilterValue(null); }}>
+        <button
+          onClick={() => {
+            setFilterType("cuisine");
+            setFilterValue(null);
+          }}
+        >
           Pays
         </button>
-        <button onClick={() => { setFilterType("cooktime"); setFilterValue(null); }}>
+        <button
+          onClick={() => {
+            setFilterType("cooktime");
+            setFilterValue(null);
+          }}
+        >
           Cooktime
         </button>
-        <button onClick={() => { setFilterType(null); setFilterValue(null); setSearch(""); }}>
+        <button
+          onClick={() => {
+            setFilterType(null);
+            setFilterValue(null);
+            setSearch("");
+          }}
+        >
           Reset
         </button>
       </div>
@@ -79,6 +108,17 @@ export default function Catalog() {
         filterType={filterType}
         filterValue={filterValue}
         search={search}
+        renderActions={(recipe: any) => (
+          <button
+            onClick={(e) => {
+              e.stopPropagation?.();
+              if (isFavorite(recipe.id)) removeFavorite(recipe.id);
+              else addFavorite(recipe);
+            }}
+          >
+            {isFavorite(recipe.id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+          </button>
+        )}
       />
     </div>
   );
