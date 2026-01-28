@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import type { Recipe } from "../types/recipes";
 
 export type Day = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
-export type MealTime = "Morning" | "Lunch" | "Dinner";
+export type MealTime = "Lunch" | "Dinner";
 export type DishType = "entrée" | "plat" | "dessert";
 
 export type DayPlanning = Record<Day, Record<MealTime, Record<DishType, Recipe | null>>>;
