@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { Recipe, Ingredient } from "../types/recipes";
 import { useFavorites } from "../hooks/useFavorites";
+import "../App.css"
 
 const MyRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>(() => {
