@@ -9,7 +9,7 @@ export type RecipeType = 'plat' | 'entrée' | 'dessert'
 export type Difficulty = 'Facile' | 'Moyen' | 'Difficile'
 
 export interface PlannedMeal {
-    recipedId: number,
+    recipeId: number,
     date: string,
     mealType: 'Déjeuner' | 'Diner'
 }
