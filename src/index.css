@@ -162,6 +162,15 @@ body {
   justify-content: center;
 }
 
+.btn-danger {
+  background: var(--color-danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: var(--color-danger-hover);
+}
+
 .favorite-btn {
   background: none;
   border: none;
@@ -601,6 +610,16 @@ body {
   gap: 1.5rem;
 }
 
+.planning-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.planning-header .page-title {
+  margin-bottom: 0;
+}
+
 .planning-grid-wrapper {
   overflow-x: auto;
 }
@@ -839,4 +858,56 @@ body {
 
 .shopping-item-text {
   flex: 1;
+}
+
+.servings-adjuster {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.servings-adjuster-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.servings-adjuster-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.servings-adjuster-value {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-text);
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+.servings-adjuster-label {
+  color: var(--color-text-secondary);
+}
+
+.servings-adjuster-reset {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  margin-left: 0.25rem;
+}
+
+.servings-adjuster-reset:hover {
+  color: var(--color-primary-hover);
 }
