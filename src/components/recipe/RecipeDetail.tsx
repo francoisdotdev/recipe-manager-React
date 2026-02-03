@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { Heart, Clock, Flame, Users, Star } from 'lucide-react'
+import { Heart, Clock, Flame, Users, Star, Minus, Plus } from 'lucide-react'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import recipesData from '../../data/recipes.json'
 import type { Recipe } from '../../types/recipe'
@@ -13,6 +14,7 @@ interface RecipeDetailProps {
 export function RecipeDetail({ recipeId }: RecipeDetailProps) {
   const [favorites, setFavorites] = useLocalStorage<number[]>('favorites', [])
   const [customRecipes] = useLocalStorage<Recipe[]>('myRecipes', [])
+  const [servingsOverride, setServingsOverride] = useState<number | null>(null)
 
   const allRecipes = [...recipes, ...customRecipes]
   const recipe = allRecipes.find((r) => r.id === recipeId)
@@ -29,6 +31,14 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
         <Link to="/" className="back-link">← Retour aux recettes</Link>
       </div>
     )
+  }
+
+  const servings = servingsOverride ?? recipe.servings
+  const ratio = servings / recipe.servings
+
+  function adjustQuantity(qty: number) {
+    const adjusted = qty * ratio
+    return Number.isInteger(adjusted) ? adjusted : Math.round(adjusted * 100) / 100
   }
 
   return (
@@ -56,8 +66,30 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
       <div className="recipe-detail-meta">
         <span className="meta-item"><Clock className="icon-sm" />Préparation : {recipe.prepTime} min</span>
         <span className="meta-item"><Flame className="icon-sm" />Cuisson : {recipe.cookTime} min</span>
-        <span className="meta-item"><Users className="icon-sm" />{recipe.servings} personnes</span>
         <span className="meta-item"><Star className="icon-sm" />{recipe.rating}/5</span>
+      </div>
+
+      <div className="servings-adjuster">
+        <Users className="icon-sm" />
+        <button
+          className="servings-adjuster-btn"
+          onClick={() => setServingsOverride(Math.max(1, servings - 1))}
+        >
+          <Minus className="icon-xs" />
+        </button>
+        <span className="servings-adjuster-value">{servings}</span>
+        <button
+          className="servings-adjuster-btn"
+          onClick={() => setServingsOverride(servings + 1)}
+        >
+          <Plus className="icon-xs" />
+        </button>
+        <span className="servings-adjuster-label">personnes</span>
+        {servingsOverride !== null && servingsOverride !== recipe.servings && (
+          <button className="servings-adjuster-reset" onClick={() => setServingsOverride(null)}>
+            Réinitialiser
+          </button>
+        )}
       </div>
 
       <div className="recipe-detail-content">
@@ -66,7 +98,7 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
           <ul className="ingredients-list">
             {recipe.ingredients.map((ingredient, index) => (
               <li key={index}>
-                <strong>{ingredient.quantity}</strong> {ingredient.unit} {ingredient.name}
+                <strong>{adjustQuantity(ingredient.quantity)}</strong> {ingredient.unit} {ingredient.name}
               </li>
             ))}
           </ul>
