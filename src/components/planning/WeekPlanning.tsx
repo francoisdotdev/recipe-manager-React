@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, Plus } from 'lucide-react'
+import { X, Plus, Trash2 } from 'lucide-react'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import type { PlannedMeal, Recipe } from '../../types/recipe'
 import recipesData from '../../data/recipes.json'
@@ -37,11 +37,22 @@ export function WeekPlanning() {
     setPlanning((prev) => prev.filter((p) => !(p.date === day && p.mealType === meal)))
   }
 
+  function clearPlanning() {
+    setPlanning([])
+  }
+
   const filteredRecipes = allRecipes.filter((r) => r.name.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <div className="planning">
-      <h1 className="page-title">Planning de la semaine</h1>
+      <div className="planning-header">
+        <h1 className="page-title">Planning de la semaine</h1>
+        {planning.length > 0 && (
+          <button className="btn btn-danger" onClick={clearPlanning}>
+            <Trash2 className="icon-xs" /> Réinitialiser
+          </button>
+        )}
+      </div>
 
       <div className="planning-grid-wrapper">
         <div className="planning-grid">
