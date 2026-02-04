@@ -1,9 +1,9 @@
-import { RecipeDetail } from '../components/recipe/RecipeDetail'
+import { RecipeDetail } from "../components/recipe/RecipeDetail";
 
 interface RecipePageProps {
-  recipeId: number
+	recipeId: number;
 }
 
 export function RecipePage({ recipeId }: RecipePageProps) {
-  return <RecipeDetail recipeId={recipeId} />
+	return <RecipeDetail recipeId={recipeId} />;
 }

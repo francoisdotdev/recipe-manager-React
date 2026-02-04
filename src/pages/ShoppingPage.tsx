@@ -1,5 +1,5 @@
-import { ShoppingList } from '../components/shopping/ShoppingList'
+import { ShoppingList } from "../components/shopping/ShoppingList";
 
 export function ShoppingPage() {
-  return <ShoppingList />
+	return <ShoppingList />;
 }
