@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { Heart, Clock, Flame, Users, Star, Minus, Plus } from 'lucide-react'
+import { Heart, Clock, Flame, Users, Star, Minus, Plus, CalendarPlus, Check } from 'lucide-react'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import recipesData from '../../data/recipes.json'
-import type { Recipe } from '../../types/recipe'
+import type { Recipe, PlannedMeal } from '../../types/recipe'
 
 const recipes = recipesData as Recipe[]
+
+const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
+const MEALS = ['Déjeuner', 'Diner'] as const
 
 interface RecipeDetailProps {
   recipeId: number
@@ -14,7 +17,10 @@ interface RecipeDetailProps {
 export function RecipeDetail({ recipeId }: RecipeDetailProps) {
   const [favorites, setFavorites] = useLocalStorage<number[]>('favorites', [])
   const [customRecipes] = useLocalStorage<Recipe[]>('myRecipes', [])
+  const [planning, setPlanning] = useLocalStorage<PlannedMeal[]>('planning', [])
   const [servingsOverride, setServingsOverride] = useState<number | null>(null)
+  const [showPlanningModal, setShowPlanningModal] = useState(false)
+  const [addedSlot, setAddedSlot] = useState<{ day: string; meal: string } | null>(null)
 
   const allRecipes = [...recipes, ...customRecipes]
   const recipe = allRecipes.find((r) => r.id === recipeId)
@@ -22,6 +28,26 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 
   function toggleFavorite() {
     setFavorites((prev) => isFavorite ? prev.filter((id) => id !== recipeId) : [...prev, recipeId])
+  }
+
+  function addToPlanning(day: string, meal: typeof MEALS[number]) {
+    setPlanning((prev) => {
+      const filtered = prev.filter((p) => !(p.date === day && p.mealType === meal))
+      return [...filtered, { recipeId, date: day, mealType: meal }]
+    })
+    setAddedSlot({ day, meal })
+    setTimeout(() => {
+      setShowPlanningModal(false)
+      setAddedSlot(null)
+    }, 800)
+  }
+
+  function isSlotOccupied(day: string, meal: string) {
+    return planning.some((p) => p.date === day && p.mealType === meal)
+  }
+
+  function isCurrentRecipeInSlot(day: string, meal: string) {
+    return planning.some((p) => p.date === day && p.mealType === meal && p.recipeId === recipeId)
   }
 
   if (!recipe) {
@@ -45,12 +71,20 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
     <div className="recipe-detail">
       <div className="recipe-detail-header">
         <Link to="/" className="back-link">← Retour aux recettes</Link>
-        <button
-          onClick={toggleFavorite}
-          className={`favorite-btn ${isFavorite ? 'is-active' : ''}`}
-        >
-          <Heart className={`icon-md ${isFavorite ? 'icon-filled' : ''}`} />
-        </button>
+        <div className="recipe-detail-actions">
+          <button
+            onClick={() => setShowPlanningModal(true)}
+            className="btn btn-secondary"
+          >
+            <CalendarPlus className="icon-sm" /> Ajouter au planning
+          </button>
+          <button
+            onClick={toggleFavorite}
+            className={`favorite-btn ${isFavorite ? 'is-active' : ''}`}
+          >
+            <Heart className={`icon-md ${isFavorite ? 'icon-filled' : ''}`} />
+          </button>
+        </div>
       </div>
 
       <div className="recipe-detail-tags">
@@ -116,6 +150,41 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
           </ol>
         </div>
       </div>
+
+      {showPlanningModal && (
+        <div className="modal-overlay" onClick={() => { setShowPlanningModal(false); setAddedSlot(null) }}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <h2 className="modal-title">Ajouter au planning</h2>
+            <p className="modal-subtitle">{recipe.name}</p>
+            <div className="planning-picker">
+              {DAYS.map((day) => (
+                <div key={day} className="planning-picker-day">
+                  <span className="planning-picker-day-label">{day}</span>
+                  <div className="planning-picker-meals">
+                    {MEALS.map((meal) => {
+                      const isAdded = addedSlot?.day === day && addedSlot?.meal === meal
+                      const isCurrentRecipe = isCurrentRecipeInSlot(day, meal)
+                      const isOccupied = isSlotOccupied(day, meal) && !isCurrentRecipe
+                      return (
+                        <button
+                          key={meal}
+                          className={`planning-picker-slot ${isAdded ? 'is-added' : ''} ${isCurrentRecipe ? 'is-current' : ''} ${isOccupied ? 'is-occupied' : ''}`}
+                          onClick={() => addToPlanning(day, meal)}
+                        >
+                          {isAdded || isCurrentRecipe ? <Check className="icon-xs" /> : meal}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => { setShowPlanningModal(false); setAddedSlot(null) }} className="btn btn-secondary btn-full">
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

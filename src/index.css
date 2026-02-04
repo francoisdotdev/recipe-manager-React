@@ -437,6 +437,12 @@ body {
   justify-content: space-between;
 }
 
+.recipe-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .recipe-detail-tags {
   display: flex;
   flex-wrap: wrap;
@@ -776,6 +782,76 @@ body {
 .modal-list-item-info {
   margin-left: 0.5rem;
   color: var(--color-text-secondary);
+}
+
+.modal-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: -0.5rem;
+}
+
+.planning-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.planning-picker-day {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.planning-picker-day-label {
+  width: 5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.planning-picker-meals {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.planning-picker-slot {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.planning-picker-slot:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.planning-picker-slot.is-occupied {
+  background: #f3f4f6;
+  color: var(--color-text-muted);
+}
+
+.planning-picker-slot.is-occupied:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-text);
+}
+
+.planning-picker-slot.is-current {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.planning-picker-slot.is-added {
+  border-color: #22c55e;
+  background: #dcfce7;
+  color: #15803d;
 }
 
 
