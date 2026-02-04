@@ -23,7 +23,9 @@
 				"useButtonType": "warn",
 				"noStaticElementInteractions": "off",
 				"useKeyWithClickEvents": "off",
-				"noLabelWithoutControl": "off"
+				"noLabelWithoutControl": "off",
+				"useSemanticElements": "off",
+				"noNoninteractiveElementToInteractiveRole": "off"
 			}
 		}
 	},

@@ -1,5 +1,5 @@
-import { WeekPlanning } from '../components/planning/WeekPlanning'
+import { WeekPlanning } from "../components/planning/WeekPlanning";
 
 export function PlanningPage() {
-  return <WeekPlanning />
+	return <WeekPlanning />;
 }
