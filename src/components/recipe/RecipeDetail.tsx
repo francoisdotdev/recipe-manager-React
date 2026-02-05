@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import recipesData from "../../data/recipes.json";
-import type { Recipe, PlannedMeal } from "../../types/recipe";
+import type { Recipe, PlannedMeal, CourseType } from "../../types/recipe";
 
 const recipes = recipesData as Recipe[];
 
@@ -27,6 +27,7 @@ const DAYS = [
 	"Dimanche",
 ];
 const MEALS = ["Déjeuner", "Diner"] as const;
+const COURSES: CourseType[] = ["entrée", "plat", "dessert"];
 
 interface RecipeDetailProps {
 	recipeId: number;
@@ -44,6 +45,7 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 	const [addedSlot, setAddedSlot] = useState<{
 		day: string;
 		meal: string;
+		course: CourseType;
 	} | null>(null);
 
 	const allRecipes = [...recipes, ...customRecipes];
@@ -56,27 +58,52 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 		);
 	}
 
-	function addToPlanning(day: string, meal: (typeof MEALS)[number]) {
+	function addToPlanning(
+		day: string,
+		meal: (typeof MEALS)[number],
+		course: CourseType,
+	) {
 		setPlanning((prev) => {
 			const filtered = prev.filter(
-				(p) => !(p.date === day && p.mealType === meal),
+				(p) =>
+					!(
+						p.date === day &&
+						p.mealType === meal &&
+						(p.courseType ?? "plat") === course
+					),
 			);
-			return [...filtered, { recipeId, date: day, mealType: meal }];
+			return [
+				...filtered,
+				{ recipeId, date: day, mealType: meal, courseType: course },
+			];
 		});
-		setAddedSlot({ day, meal });
+		setAddedSlot({ day, meal, course });
 		setTimeout(() => {
 			setShowPlanningModal(false);
 			setAddedSlot(null);
 		}, 800);
 	}
 
-	function isSlotOccupied(day: string, meal: string) {
-		return planning.some((p) => p.date === day && p.mealType === meal);
+	function isSlotOccupied(day: string, meal: string, course: CourseType) {
+		return planning.some(
+			(p) =>
+				p.date === day &&
+				p.mealType === meal &&
+				(p.courseType ?? "plat") === course,
+		);
 	}
 
-	function isCurrentRecipeInSlot(day: string, meal: string) {
+	function isCurrentRecipeInSlot(
+		day: string,
+		meal: string,
+		course: CourseType,
+	) {
 		return planning.some(
-			(p) => p.date === day && p.mealType === meal && p.recipeId === recipeId,
+			(p) =>
+				p.date === day &&
+				p.mealType === meal &&
+				(p.courseType ?? "plat") === course &&
+				p.recipeId === recipeId,
 		);
 	}
 
@@ -93,6 +120,7 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 
 	const servings = servingsOverride ?? recipe.servings;
 	const ratio = servings / recipe.servings;
+	const recipeCourse: CourseType = recipe.type;
 
 	function adjustQuantity(qty: number) {
 		const adjusted = qty * ratio;
@@ -134,6 +162,12 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 					{recipe.difficulty}
 				</span>
 			</div>
+
+			<img
+				src={recipe.image || "https://placehold.co/800x400/FFEDD5/C2410C"}
+				alt={recipe.name}
+				className="recipe-detail-image"
+			/>
 
 			<h1 className="recipe-detail-title">{recipe.name}</h1>
 
@@ -236,27 +270,47 @@ export function RecipeDetail({ recipeId }: RecipeDetailProps) {
 								<div key={day} className="planning-picker-day">
 									<span className="planning-picker-day-label">{day}</span>
 									<div className="planning-picker-meals">
-										{MEALS.map((meal) => {
-											const isAdded =
-												addedSlot?.day === day && addedSlot?.meal === meal;
-											const isCurrentRecipe = isCurrentRecipeInSlot(day, meal);
-											const isOccupied =
-												isSlotOccupied(day, meal) && !isCurrentRecipe;
-											return (
-												<button
-													type="button"
-													key={meal}
-													className={`planning-picker-slot ${isAdded ? "is-added" : ""} ${isCurrentRecipe ? "is-current" : ""} ${isOccupied ? "is-occupied" : ""}`}
-													onClick={() => addToPlanning(day, meal)}
-												>
-													{isAdded || isCurrentRecipe ? (
-														<Check className="icon-xs" />
-													) : (
-														meal
-													)}
-												</button>
-											);
-										})}
+										{MEALS.map((meal) => (
+											<div key={meal} className="planning-picker-meal-group">
+												<span className="planning-picker-meal-label">
+													{meal}
+												</span>
+												<div className="planning-picker-courses">
+													{COURSES.map((course) => {
+														const isAdded =
+															addedSlot?.day === day &&
+															addedSlot?.meal === meal &&
+															addedSlot?.course === course;
+														const isCurrentRecipe = isCurrentRecipeInSlot(
+															day,
+															meal,
+															course,
+														);
+														const isOccupied =
+															isSlotOccupied(day, meal, course) &&
+															!isCurrentRecipe;
+														const isMatchingCourse =
+															course === recipeCourse;
+														return (
+															<button
+																type="button"
+																key={course}
+																className={`planning-picker-slot ${isAdded ? "is-added" : ""} ${isCurrentRecipe ? "is-current" : ""} ${isOccupied ? "is-occupied" : ""} ${isMatchingCourse ? "is-matching" : ""}`}
+																onClick={() =>
+																	addToPlanning(day, meal, course)
+																}
+															>
+																{isAdded || isCurrentRecipe ? (
+																	<Check className="icon-xs" />
+																) : (
+																	course
+																)}
+															</button>
+														);
+													})}
+												</div>
+											</div>
+										))}
 									</div>
 								</div>
 							))}
