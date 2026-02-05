@@ -33,30 +33,37 @@ export function RecipeCard({
 				params={{ recipeId: String(recipe.id) }}
 				className="recipe-card-link"
 			>
-				<div className="recipe-card-tags">
-					<span className="tag tag-type">{recipe.type}</span>
-					<span className="tag tag-cuisine">{recipe.cuisine}</span>
+				<img
+					src={recipe.image || "https://placehold.co/600x400/FFEDD5/C2410C"}
+					alt={recipe.name}
+					className="recipe-card-image"
+				/>
+				<div className="recipe-card-body">
+					<div className="recipe-card-tags">
+						<span className="tag tag-type">{recipe.type}</span>
+						<span className="tag tag-cuisine">{recipe.cuisine}</span>
+					</div>
+					<h3 className="recipe-card-title">{recipe.name}</h3>
+					<div className="recipe-card-meta">
+						<span className="meta-item">
+							<Clock className="icon-xs" />
+							{totalTime} min
+						</span>
+						<span className="meta-item">
+							<Users className="icon-xs" />
+							{recipe.servings} pers.
+						</span>
+						<span className="meta-item">
+							<Star className="icon-xs" />
+							{recipe.rating}/5
+						</span>
+					</div>
+					<span
+						className={`tag tag-difficulty tag-${recipe.difficulty.toLowerCase()}`}
+					>
+						{recipe.difficulty}
+					</span>
 				</div>
-				<h3 className="recipe-card-title">{recipe.name}</h3>
-				<div className="recipe-card-meta">
-					<span className="meta-item">
-						<Clock className="icon-xs" />
-						{totalTime} min
-					</span>
-					<span className="meta-item">
-						<Users className="icon-xs" />
-						{recipe.servings} pers.
-					</span>
-					<span className="meta-item">
-						<Star className="icon-xs" />
-						{recipe.rating}/5
-					</span>
-				</div>
-				<span
-					className={`tag tag-difficulty tag-${recipe.difficulty.toLowerCase()}`}
-				>
-					{recipe.difficulty}
-				</span>
 			</Link>
 		</div>
 	);
