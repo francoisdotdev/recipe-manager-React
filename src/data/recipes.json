@@ -8,7 +8,7 @@
 		"prepTime": 15,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Riz arborio", "quantity": 300, "unit": "g" },
 			{ "name": "Champignons", "quantity": 250, "unit": "g" }
@@ -29,7 +29,7 @@
 		"prepTime": 20,
 		"cookTime": 40,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poulet", "quantity": 800, "unit": "g" },
 			{ "name": "Poivrons", "quantity": 2, "unit": "pcs" }
@@ -50,7 +50,7 @@
 		"prepTime": 15,
 		"cookTime": 10,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Tortillas", "quantity": 8, "unit": "pcs" },
 			{ "name": "Haricots rouges", "quantity": 400, "unit": "g" }
@@ -71,7 +71,7 @@
 		"prepTime": 20,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Nouilles de riz", "quantity": 250, "unit": "g" },
 			{ "name": "Crevettes", "quantity": 200, "unit": "g" }
@@ -92,7 +92,7 @@
 		"prepTime": 10,
 		"cookTime": 10,
 		"servings": 2,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte miso", "quantity": 2, "unit": "càs" },
 			{ "name": "Tofu", "quantity": 100, "unit": "g" }
@@ -113,7 +113,7 @@
 		"prepTime": 15,
 		"cookTime": 0,
 		"servings": 2,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Laitue romaine", "quantity": 1, "unit": "pcs" },
 			{ "name": "Poulet grillé", "quantity": 100, "unit": "g" }
@@ -130,7 +130,7 @@
 		"prepTime": 20,
 		"cookTime": 35,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte brisée", "quantity": 1, "unit": "pcs" },
 			{ "name": "Lardons", "quantity": 150, "unit": "g" }
@@ -147,7 +147,7 @@
 		"prepTime": 25,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pommes de terre", "quantity": 300, "unit": "g" },
 			{ "name": "Carottes", "quantity": 200, "unit": "g" }
@@ -168,7 +168,7 @@
 		"prepTime": 15,
 		"cookTime": 20,
 		"servings": 2,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte à pizza", "quantity": 1, "unit": "pcs" },
 			{ "name": "Mozzarella", "quantity": 125, "unit": "g" }
@@ -185,7 +185,7 @@
 		"prepTime": 30,
 		"cookTime": 10,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pois chiches", "quantity": 250, "unit": "g" },
 			{ "name": "Oignon", "quantity": 1, "unit": "pcs" }
@@ -206,7 +206,7 @@
 		"prepTime": 30,
 		"cookTime": 180,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Boeuf", "quantity": 1, "unit": "kg" },
 			{ "name": "Vin rouge", "quantity": 75, "unit": "cl" }
@@ -227,7 +227,7 @@
 		"prepTime": 20,
 		"cookTime": 0,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Boulgour", "quantity": 200, "unit": "g" },
 			{ "name": "Tomates", "quantity": 3, "unit": "pcs" }
@@ -248,7 +248,7 @@
 		"prepTime": 25,
 		"cookTime": 40,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Aubergine", "quantity": 1, "unit": "pcs" },
 			{ "name": "Courgette", "quantity": 2, "unit": "pcs" }
@@ -265,7 +265,7 @@
 		"prepTime": 40,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Riz à sushi", "quantity": 300, "unit": "g" },
 			{ "name": "Saumon", "quantity": 200, "unit": "g" }
@@ -282,7 +282,7 @@
 		"prepTime": 20,
 		"cookTime": 35,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte feuilletée", "quantity": 1, "unit": "pcs" },
 			{ "name": "Pommes", "quantity": 4, "unit": "pcs" }
@@ -299,7 +299,7 @@
 		"prepTime": 15,
 		"cookTime": 0,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Tomates", "quantity": 5, "unit": "pcs" },
 			{ "name": "Concombre", "quantity": 1, "unit": "pcs" }
@@ -316,7 +316,7 @@
 		"prepTime": 20,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Haricots rouges", "quantity": 400, "unit": "g" },
 			{ "name": "Maïs", "quantity": 150, "unit": "g" }
@@ -337,7 +337,7 @@
 		"prepTime": 30,
 		"cookTime": 45,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes à lasagne", "quantity": 9, "unit": "pcs" },
 			{ "name": "Viande hachée", "quantity": 400, "unit": "g" }
@@ -354,7 +354,7 @@
 		"prepTime": 20,
 		"cookTime": 40,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Oignons", "quantity": 4, "unit": "pcs" },
 			{ "name": "Bouillon", "quantity": 1, "unit": "l" }
@@ -375,7 +375,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Farine", "quantity": 250, "unit": "g" },
 			{ "name": "Lait", "quantity": 50, "unit": "cl" }
@@ -392,7 +392,7 @@
 		"prepTime": 25,
 		"cookTime": 60,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poulet", "quantity": 800, "unit": "g" },
 			{ "name": "Abricots secs", "quantity": 100, "unit": "g" }
@@ -413,7 +413,7 @@
 		"prepTime": 35,
 		"cookTime": 45,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Riz basmati", "quantity": 400, "unit": "g" },
 			{ "name": "Légumes variés", "quantity": 300, "unit": "g" }
@@ -430,7 +430,7 @@
 		"prepTime": 40,
 		"cookTime": 60,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Aubergines", "quantity": 2, "unit": "pcs" },
 			{ "name": "Viande hachée", "quantity": 400, "unit": "g" }
@@ -451,7 +451,7 @@
 		"prepTime": 10,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Farine", "quantity": 200, "unit": "g" },
 			{ "name": "Lait", "quantity": 30, "unit": "cl" }
@@ -468,7 +468,7 @@
 		"prepTime": 45,
 		"cookTime": 60,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poisson blanc", "quantity": 600, "unit": "g" },
 			{ "name": "Fruits de mer", "quantity": 300, "unit": "g" }
@@ -489,7 +489,7 @@
 		"prepTime": 15,
 		"cookTime": 0,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Concombre", "quantity": 1, "unit": "pcs" },
 			{ "name": "Feta", "quantity": 100, "unit": "g" }
@@ -506,7 +506,7 @@
 		"prepTime": 30,
 		"cookTime": 60,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Semoule", "quantity": 400, "unit": "g" },
 			{ "name": "Légumes variés", "quantity": 400, "unit": "g" }
@@ -527,7 +527,7 @@
 		"prepTime": 25,
 		"cookTime": 30,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte sablée", "quantity": 1, "unit": "pcs" },
 			{ "name": "Citrons", "quantity": 3, "unit": "pcs" }
@@ -544,7 +544,7 @@
 		"prepTime": 15,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Riz", "quantity": 250, "unit": "g" },
 			{ "name": "Jambon", "quantity": 100, "unit": "g" }
@@ -561,7 +561,7 @@
 		"prepTime": 30,
 		"cookTime": 0,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Mascarpone", "quantity": 250, "unit": "g" },
 			{ "name": "Biscuits à la cuillère", "quantity": 24, "unit": "pcs" }
@@ -578,7 +578,7 @@
 		"prepTime": 15,
 		"cookTime": 25,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Potiron", "quantity": 500, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -595,7 +595,7 @@
 		"prepTime": 40,
 		"cookTime": 60,
 		"servings": 8,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Riz", "quantity": 400, "unit": "g" },
 			{ "name": "Fruits de mer", "quantity": 300, "unit": "g" }
@@ -612,7 +612,7 @@
 		"prepTime": 20,
 		"cookTime": 25,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Farine", "quantity": 200, "unit": "g" },
 			{ "name": "Rhum", "quantity": 5, "unit": "cl" }
@@ -629,7 +629,7 @@
 		"prepTime": 15,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Farine", "quantity": 250, "unit": "g" },
 			{ "name": "Lait", "quantity": 30, "unit": "cl" }
@@ -646,7 +646,7 @@
 		"prepTime": 30,
 		"cookTime": 120,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Bouillon", "quantity": 2, "unit": "l" },
 			{ "name": "Nouilles de riz", "quantity": 300, "unit": "g" }
@@ -667,7 +667,7 @@
 		"prepTime": 5,
 		"cookTime": 5,
 		"servings": 2,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Oeufs", "quantity": 4, "unit": "pcs" },
 			{ "name": "Lait", "quantity": 5, "unit": "cl" }
@@ -684,7 +684,7 @@
 		"prepTime": 20,
 		"cookTime": 60,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pommes de terre", "quantity": 1, "unit": "kg" },
 			{ "name": "Crème", "quantity": 25, "unit": "cl" }
@@ -705,7 +705,7 @@
 		"prepTime": 25,
 		"cookTime": 35,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Boeuf", "quantity": 500, "unit": "g" },
 			{ "name": "Crème", "quantity": 20, "unit": "cl" }
@@ -722,7 +722,7 @@
 		"prepTime": 30,
 		"cookTime": 0,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Galettes de riz", "quantity": 8, "unit": "pcs" },
 			{ "name": "Crevettes", "quantity": 100, "unit": "g" }
@@ -743,7 +743,7 @@
 		"prepTime": 15,
 		"cookTime": 25,
 		"servings": 8,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Chocolat", "quantity": 200, "unit": "g" },
 			{ "name": "Beurre", "quantity": 100, "unit": "g" }
@@ -764,7 +764,7 @@
 		"prepTime": 15,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Lentilles", "quantity": 200, "unit": "g" },
 			{ "name": "Carottes", "quantity": 2, "unit": "pcs" }
@@ -781,7 +781,7 @@
 		"prepTime": 20,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poulet", "quantity": 600, "unit": "g" },
 			{ "name": "Yaourt", "quantity": 10, "unit": "cl" }
@@ -802,7 +802,7 @@
 		"prepTime": 10,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes", "quantity": 400, "unit": "g" },
 			{ "name": "Lardons", "quantity": 100, "unit": "g" }
@@ -823,7 +823,7 @@
 		"prepTime": 25,
 		"cookTime": 40,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poisson blanc", "quantity": 400, "unit": "g" },
 			{ "name": "Tomates", "quantity": 2, "unit": "pcs" }
@@ -840,7 +840,7 @@
 		"prepTime": 15,
 		"cookTime": 35,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Cerises", "quantity": 400, "unit": "g" },
 			{ "name": "Farine", "quantity": 100, "unit": "g" }
@@ -857,7 +857,7 @@
 		"prepTime": 20,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Farine", "quantity": 150, "unit": "g" },
 			{ "name": "Lait", "quantity": 20, "unit": "cl" }
@@ -874,7 +874,7 @@
 		"prepTime": 10,
 		"cookTime": 60,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poulet entier", "quantity": 1, "unit": "pcs" },
 			{ "name": "Pommes de terre", "quantity": 500, "unit": "g" }
@@ -895,7 +895,7 @@
 		"prepTime": 15,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Quinoa", "quantity": 200, "unit": "g" },
 			{ "name": "Légumes variés", "quantity": 200, "unit": "g" }
@@ -912,7 +912,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Carottes", "quantity": 500, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -929,7 +929,7 @@
 		"prepTime": 10,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes", "quantity": 400, "unit": "g" },
 			{ "name": "Pesto", "quantity": 100, "unit": "g" }
@@ -946,7 +946,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Courgettes", "quantity": 3, "unit": "pcs" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -963,7 +963,7 @@
 		"prepTime": 20,
 		"cookTime": 25,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte sablée", "quantity": 1, "unit": "pcs" },
 			{ "name": "Chocolat", "quantity": 200, "unit": "g" }
@@ -980,7 +980,7 @@
 		"prepTime": 15,
 		"cookTime": 0,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Tomates", "quantity": 2, "unit": "pcs" },
 			{ "name": "Thon", "quantity": 100, "unit": "g" }
@@ -997,7 +997,7 @@
 		"prepTime": 15,
 		"cookTime": 25,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poulet", "quantity": 600, "unit": "g" },
 			{ "name": "Lait de coco", "quantity": 20, "unit": "cl" }
@@ -1014,7 +1014,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Tomates", "quantity": 5, "unit": "pcs" },
 			{ "name": "Oignon", "quantity": 1, "unit": "pcs" }
@@ -1031,7 +1031,7 @@
 		"prepTime": 15,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes", "quantity": 400, "unit": "g" },
 			{ "name": "Viande hachée", "quantity": 200, "unit": "g" }
@@ -1048,7 +1048,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poireaux", "quantity": 3, "unit": "pcs" },
 			{ "name": "Pommes de terre", "quantity": 2, "unit": "pcs" }
@@ -1065,7 +1065,7 @@
 		"prepTime": 20,
 		"cookTime": 25,
 		"servings": 6,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâte sablée", "quantity": 1, "unit": "pcs" },
 			{ "name": "Fraises", "quantity": 300, "unit": "g" }
@@ -1082,7 +1082,7 @@
 		"prepTime": 15,
 		"cookTime": 40,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pois cassés", "quantity": 200, "unit": "g" },
 			{ "name": "Carottes", "quantity": 2, "unit": "pcs" }
@@ -1099,7 +1099,7 @@
 		"prepTime": 10,
 		"cookTime": 15,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes", "quantity": 400, "unit": "g" },
 			{ "name": "Légumes variés", "quantity": 200, "unit": "g" }
@@ -1116,7 +1116,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Brocolis", "quantity": 1, "unit": "pcs" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1133,7 +1133,7 @@
 		"prepTime": 15,
 		"cookTime": 10,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pâtes", "quantity": 200, "unit": "g" },
 			{ "name": "Légumes variés", "quantity": 150, "unit": "g" }
@@ -1150,7 +1150,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Champignons", "quantity": 300, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1167,7 +1167,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Courge", "quantity": 500, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1184,7 +1184,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Patate douce", "quantity": 500, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1201,7 +1201,7 @@
 		"prepTime": 15,
 		"cookTime": 30,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Pois chiches", "quantity": 200, "unit": "g" },
 			{ "name": "Carottes", "quantity": 2, "unit": "pcs" }
@@ -1218,7 +1218,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Navets", "quantity": 400, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1235,7 +1235,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Céleri", "quantity": 400, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1252,7 +1252,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Fenouil", "quantity": 400, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
@@ -1269,7 +1269,7 @@
 		"prepTime": 10,
 		"cookTime": 20,
 		"servings": 4,
-		"image": "url...",
+		"image": "https://placehold.co/600x400/FFEDD5/C2410C",
 		"ingredients": [
 			{ "name": "Poivrons", "quantity": 400, "unit": "g" },
 			{ "name": "Crème", "quantity": 10, "unit": "cl" }
