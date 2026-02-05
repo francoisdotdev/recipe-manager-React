@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X, Plus, Trash2 } from "lucide-react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import type { PlannedMeal, Recipe } from "../../types/recipe";
+import type { PlannedMeal, Recipe, CourseType } from "../../types/recipe";
 import recipesData from "../../data/recipes.json";
 
 const allRecipesData = recipesData as Recipe[];
@@ -16,6 +16,7 @@ const DAYS = [
 	"Dimanche",
 ];
 const MEALS = ["Déjeuner", "Diner"] as const;
+const COURSES: CourseType[] = ["entrée", "plat", "dessert"];
 
 export function WeekPlanning() {
 	const [planning, setPlanning] = useLocalStorage<PlannedMeal[]>(
@@ -26,13 +27,23 @@ export function WeekPlanning() {
 	const [selecting, setSelecting] = useState<{
 		day: string;
 		meal: (typeof MEALS)[number];
+		course: CourseType;
 	} | null>(null);
 	const [search, setSearch] = useState("");
 
 	const allRecipes = [...allRecipesData, ...customRecipes];
 
-	function getRecipeForSlot(day: string, meal: (typeof MEALS)[number]) {
-		const entry = planning.find((p) => p.date === day && p.mealType === meal);
+	function getRecipeForSlot(
+		day: string,
+		meal: (typeof MEALS)[number],
+		course: CourseType,
+	) {
+		const entry = planning.find(
+			(p) =>
+				p.date === day &&
+				p.mealType === meal &&
+				(p.courseType ?? "plat") === course,
+		);
 		if (!entry) return null;
 		return allRecipes.find((r) => r.id === entry.recipeId) || null;
 	}
@@ -41,20 +52,41 @@ export function WeekPlanning() {
 		if (!selecting) return;
 		setPlanning((prev) => {
 			const filtered = prev.filter(
-				(p) => !(p.date === selecting.day && p.mealType === selecting.meal),
+				(p) =>
+					!(
+						p.date === selecting.day &&
+						p.mealType === selecting.meal &&
+						(p.courseType ?? "plat") === selecting.course
+					),
 			);
 			return [
 				...filtered,
-				{ recipeId, date: selecting.day, mealType: selecting.meal },
+				{
+					recipeId,
+					date: selecting.day,
+					mealType: selecting.meal,
+					courseType: selecting.course,
+				},
 			];
 		});
 		setSelecting(null);
 		setSearch("");
 	}
 
-	function removeRecipe(day: string, meal: (typeof MEALS)[number]) {
+	function removeRecipe(
+		day: string,
+		meal: (typeof MEALS)[number],
+		course: CourseType,
+	) {
 		setPlanning((prev) =>
-			prev.filter((p) => !(p.date === day && p.mealType === meal)),
+			prev.filter(
+				(p) =>
+					!(
+						p.date === day &&
+						p.mealType === meal &&
+						(p.courseType ?? "plat") === course
+					),
+			),
 		);
 	}
 
@@ -62,9 +94,21 @@ export function WeekPlanning() {
 		setPlanning([]);
 	}
 
-	const filteredRecipes = allRecipes.filter((r) =>
-		r.name.toLowerCase().includes(search.toLowerCase()),
-	);
+	const matchingRecipes = selecting
+		? allRecipes.filter(
+				(r) =>
+					r.type === selecting.course &&
+					r.name.toLowerCase().includes(search.toLowerCase()),
+			)
+		: [];
+
+	const otherRecipes = selecting
+		? allRecipes.filter(
+				(r) =>
+					r.type !== selecting.course &&
+					r.name.toLowerCase().includes(search.toLowerCase()),
+			)
+		: [];
 
 	return (
 		<div className="planning">
@@ -93,44 +137,52 @@ export function WeekPlanning() {
 					{MEALS.map((meal) => (
 						<div key={meal} className="planning-meal-row">
 							<div className="planning-meal-label">{meal}</div>
-							{DAYS.map((day) => {
-								const recipe = getRecipeForSlot(day, meal);
-								return (
-									<div
-										key={`${day}-${meal}`}
-										className="planning-slot"
-										onClick={() => setSelecting({ day, meal })}
-										onKeyDown={(e) => {
-											if (e.key === "Enter") setSelecting({ day, meal });
-										}}
-										role="button"
-										tabIndex={0}
-									>
-										{recipe ? (
-											<div className="planning-slot-content">
-												<p className="planning-slot-name">{recipe.name}</p>
-												<p className="planning-slot-time">
-													{recipe.prepTime + recipe.cookTime} min
-												</p>
-												<button
-													type="button"
-													onClick={(e) => {
-														e.stopPropagation();
-														removeRecipe(day, meal);
-													}}
-													className="planning-slot-remove"
-												>
-													<X className="icon-xs" />
-												</button>
+							{COURSES.map((course) => (
+								<div key={`${meal}-${course}`} className="planning-course-row">
+									<div className="planning-course-label">{course}</div>
+									{DAYS.map((day) => {
+										const recipe = getRecipeForSlot(day, meal, course);
+										return (
+											<div
+												key={`${day}-${meal}-${course}`}
+												className="planning-slot"
+												onClick={() =>
+													setSelecting({ day, meal, course })
+												}
+												onKeyDown={(e) => {
+													if (e.key === "Enter")
+														setSelecting({ day, meal, course });
+												}}
+												role="button"
+												tabIndex={0}
+											>
+												{recipe ? (
+													<div className="planning-slot-content">
+														<p className="planning-slot-name">{recipe.name}</p>
+														<p className="planning-slot-time">
+															{recipe.prepTime + recipe.cookTime} min
+														</p>
+														<button
+															type="button"
+															onClick={(e) => {
+																e.stopPropagation();
+																removeRecipe(day, meal, course);
+															}}
+															className="planning-slot-remove"
+														>
+															<X className="icon-xs" />
+														</button>
+													</div>
+												) : (
+													<span className="planning-slot-empty">
+														<Plus className="icon-xs" />
+													</span>
+												)}
 											</div>
-										) : (
-											<span className="planning-slot-empty">
-												<Plus className="icon-sm" />
-											</span>
-										)}
-									</div>
-								);
-							})}
+										);
+									})}
+								</div>
+							))}
 						</div>
 					))}
 				</div>
@@ -159,7 +211,7 @@ export function WeekPlanning() {
 						role="dialog"
 					>
 						<h2 className="modal-title">
-							{selecting.day} – {selecting.meal}
+							{selecting.day} – {selecting.meal} – {selecting.course}
 						</h2>
 						<input
 							className="form-input"
@@ -168,12 +220,28 @@ export function WeekPlanning() {
 							onChange={(e) => setSearch(e.target.value)}
 						/>
 						<div className="modal-list">
-							{filteredRecipes.map((r) => (
+							{matchingRecipes.map((r) => (
 								<button
 									type="button"
 									key={r.id}
 									onClick={() => assignRecipe(r.id)}
 									className="modal-list-item"
+								>
+									<span className="modal-list-item-name">{r.name}</span>
+									<span className="modal-list-item-info">
+										{r.type} · {r.difficulty}
+									</span>
+								</button>
+							))}
+							{otherRecipes.length > 0 && matchingRecipes.length > 0 && (
+								<div className="modal-list-separator">Autres recettes</div>
+							)}
+							{otherRecipes.map((r) => (
+								<button
+									type="button"
+									key={r.id}
+									onClick={() => assignRecipe(r.id)}
+									className="modal-list-item modal-list-item-other"
 								>
 									<span className="modal-list-item-name">{r.name}</span>
 									<span className="modal-list-item-info">

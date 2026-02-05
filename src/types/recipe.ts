@@ -8,10 +8,13 @@ export type RecipeType = "plat" | "entrée" | "dessert";
 
 export type Difficulty = "Facile" | "Moyen" | "Difficile";
 
+export type CourseType = "entrée" | "plat" | "dessert";
+
 export interface PlannedMeal {
 	recipeId: number;
 	date: string;
 	mealType: "Déjeuner" | "Diner";
+	courseType: CourseType;
 }
 
 export interface ShoppingItem {
